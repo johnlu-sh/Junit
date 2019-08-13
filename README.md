@@ -1,6 +1,7 @@
 # Environment Preparation
 - Set up an IntelliJ project.
-- Set up JUnit frameworks
+- Set up JUnit frameworks.
+- Create an example to start understanding why we need mocks.
 
 ## Files Modified
 	- new file: pom.xml
