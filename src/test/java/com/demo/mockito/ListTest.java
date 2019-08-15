@@ -41,4 +41,11 @@ public class ListTest {
     assertEquals("mockito", list.get(0));
     assertEquals("mockito", list.get(1));
   }
+  
+  @Test(expected = RuntimeException.class)
+  public void mockGetThrowException() {
+    List<String> list = mock(List.class);
+    when(list.get(Mockito.anyInt())).thenThrow(new RuntimeException("Something went wrong"));
+		list.get(0);
+  }
 }
