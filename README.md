@@ -1,16 +1,15 @@
-# Environment Preparation
-- Set up an IntelliJ project.
-- Set up JUnit frameworks
+# Introduction
+- BDD Mockito Syntax
 
 ## Files Modified
-	- new file: pom.xml
-	- new file: src/main/java/com/demo/data/api/TodoService.java
-	- new file: src/main/java/com/demo/business/TodoBusinessImpl.java
+	- modified: pom.xml
+	- modified: src/test/java/com/demo/mockito/ListTest.java
+	- modified: src/test/java/com/demo/business/TodoBusinessImplTest.java
 
 ## Libraries Added
 -		<dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>2.1</version>
             <scope>test</scope>
         </dependency>	
