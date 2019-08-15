@@ -1,16 +1,26 @@
-# Environment Preparation
-- Set up an IntelliJ project.
-- Set up JUnit frameworks
+# Introduction
+- Using PowerMock and Mockito to mock a constructor.
+- Using PowerMock and Mockito to mock a private method.
+- Using PowerMock and Mockito to mock a static method.
 
 ## Files Modified
-	- new file: pom.xml
-	- new file: src/main/java/com/demo/data/api/TodoService.java
-	- new file: src/main/java/com/demo/business/TodoBusinessImpl.java
+	- modified: pom.xml
+	- new file: src/main/java/com/demo/powermock/UtilityClass.java
+	- new file: src/main/java/com/demo/powermock/SystemUnderTest.java
+	- new file: src/test/java/com/demo/powermock/PowerMockitoMockingConstructorTest.java
+	- new file: src/test/java/com/demo/powermock/PowerMockitoMockingPrivateMethodTest.java
+	- new file: src/test/java/com/demo/powermock/PowerMockitoMockingStaticMethodTest.java
 
 ## Libraries Added
 -		<dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>2.0.2</version>
             <scope>test</scope>
         </dependency>	
+-		<dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito2</artifactId>
+            <version>2.0.2</version>
+            <scope>test</scope>
+        </dependency>		
