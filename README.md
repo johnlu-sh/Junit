@@ -1,16 +1,7 @@
 # Environment Preparation
-- Set up an IntelliJ project.
-- Set up JUnit frameworks
+- A few mockito examples mocking List class
+- Multiple return values
+- Introduction to Argument Matchers
 
 ## Files Modified
-	- new file: pom.xml
-	- new file: src/main/java/com/demo/data/api/TodoService.java
-	- new file: src/main/java/com/demo/business/TodoBusinessImpl.java
-
-## Libraries Added
--		<dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>	
+	- new file: src/test/java/com/demo/mockito/ListTest.java	
