@@ -16,6 +16,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
+import org.mockito.ArgumentCaptor;
 
 
 public class TodoBusinessImplTest {
@@ -62,5 +63,16 @@ public class TodoBusinessImplTest {
     verify(todoService, never()).deleteTodo("Learn Spring MVC");
     verify(todoService, never()).deleteTodo("Learn Spring");
     verify(todoService, times(1)).deleteTodo("Learn to Dance"); // atLeastOnce, atLeast
+  }
+
+  @Test
+  public void captureArgument() {
+    ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
+    List<String> allTodos = Arrays.asList("Learn Spring MVC", "Learn Spring", "Learn to Dance");
+    when(todoService.retrieveTodos("luyq")).thenReturn(allTodos);
+    TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoService);
+    todoBusinessImpl.deleteTodosNotRelatedToSpring("luyq");
+    verify(todoService).deleteTodo(argumentCaptor.capture());
+    assertEquals("Learn to Dance", argumentCaptor.getValue());
   }
 }
