@@ -5,6 +5,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.demo.data.api.TodoService;
@@ -47,5 +50,17 @@ public class TodoBusinessImplTest {
     List<String> todos = todoBusinessImpl.retrieveTodosRelatedToSpring("luyq");
     // then
     assertThat(todos.size(), is(2));
+  }
+
+  @Test
+  public void testDeleteTodosNotRelatedToSpring() {
+    List<String> allTodos = Arrays.asList("Learn Spring MVC", "Learn Spring", "Learn to Dance");
+    when(todoService.retrieveTodos("luyq")).thenReturn(allTodos);
+    TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoService);
+    todoBusinessImpl.deleteTodosNotRelatedToSpring("luyq");
+    verify(todoService).deleteTodo("Learn to Dance");
+    verify(todoService, never()).deleteTodo("Learn Spring MVC");
+    verify(todoService, never()).deleteTodo("Learn Spring");
+    verify(todoService, times(1)).deleteTodo("Learn to Dance"); // atLeastOnce, atLeast
   }
 }
