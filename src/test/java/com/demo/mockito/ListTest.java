@@ -1,8 +1,11 @@
 package com.demo.mockito;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -40,5 +43,15 @@ public class ListTest {
     when(list.get(anyInt())).thenReturn("mockito");   // Argument Matchers
     assertEquals("mockito", list.get(0));
     assertEquals("mockito", list.get(1));
+  }
+
+  @Test
+  public void mockGetWithAny_BDD() {
+    List<String> list = mock(List.class);
+    // given
+    given(list.get(anyInt())).willReturn("mockito");
+    // then
+    assertThat("mockito", is(list.get(0)));
+    assertThat("mockito", is(list.get(1)));
   }
 }
