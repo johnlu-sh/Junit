@@ -1,4 +1,4 @@
-# Environment Preparation
+# Introduction
 - Set up an IntelliJ project.
 - Set up JUnit frameworks.
 - Create an example to start understanding why we need mocks.
